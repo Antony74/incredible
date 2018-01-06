@@ -1,15 +1,24 @@
-import * as _ from '../vendor/lodash.min';
-import * as joint from '../vendor/joint.min';
-import * as $ from '../vendor/jquery-2.1.4.min';
-import * as i18n from '../vendor/i18next-1.10.1.min';
-import {incredibleFormatTerm} from '../logic';
-import {logics} from '../logics';
-import {custom_rules, loadSession, sessions, setupTaskSelection, showTaskSelection, taskToHTML} from './task-management';
-import {create_paper} from './graph-interaction';
-import {buildProof, g, processDerivedRule, processGraph} from './logic-interface';
-import {annotationToBlockDesc, BlockDescRenderer, ruleToBlockDesc} from './shapes';
-
-const V = joint.V;
+declare const _;                      // from '../vendor/lodash.min';
+declare const joint;                  // from '../vendor/joint.min';
+declare const V;                      // from '../vendor/joint.min';
+declare const $;                      // from '../vendor/jquery-2.1.4.min';
+declare const i18n;                   // '../vendor/i18next-1.10.1.min';
+declare const incredibleFormatTerm;   // from '../logic';
+declare const logics;                 // from '../logics';
+declare const custom_rules;           // from './task-management';
+declare const loadSession;            // from './task-management';
+declare const sessions;               // from './task-management';
+declare const setupTaskSelection;     // from './task-management';
+declare const showTaskSelection;      // from './task-management';
+declare const taskToHTML;             // from './task-management';
+declare const create_paper;           // from './graph-interaction';
+declare const buildProof;             // './logic-interface';
+declare const g                       // './logic-interface';
+declare const processDerivedRule;     // './logic-interface';
+declare const processGraph;           // './logic-interface';
+declare const annotationToBlockDesc;  // from './shapes';
+declare const BlockDescRenderer;      // from './shapes';
+declare const ruleToBlockDesc;        // from './shapes';
 
 // Some global variables
 var task; // The current task
@@ -34,11 +43,11 @@ function current_logic() {
 }
 
 
-export var graph = new joint.dia.Graph({
+var graph = new joint.dia.Graph({
   loading: true
 });
 
-export var paper = create_paper();
+var paper = create_paper();
 
 var undoList = [];
 var currentState;
