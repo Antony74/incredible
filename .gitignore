@@ -15,8 +15,10 @@ cabal.sandbox.config
 *.prof
 *.aux
 *.hp
+*.map
 .idea
 node_modules
 npm-debug.log
 examples.js
 gh-page/
+webui/webui.js

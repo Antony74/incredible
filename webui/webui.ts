@@ -1,3 +1,16 @@
+import * as _ from '../vendor/lodash.min';
+import * as joint from '../vendor/joint.min';
+import * as $ from '../vendor/jquery-2.1.4.min';
+import * as i18n from '../vendor/i18next-1.10.1.min';
+import {incredibleFormatTerm} from '../logic';
+import {logics} from '../logics';
+import {custom_rules, loadSession, sessions, setupTaskSelection, showTaskSelection, taskToHTML} from './task-management';
+import {create_paper} from './graph-interaction';
+import {buildProof, g, processDerivedRule, processGraph} from './logic-interface';
+import {annotationToBlockDesc, BlockDescRenderer, ruleToBlockDesc} from './shapes';
+
+const V = joint.V;
+
 // Some global variables
 var task; // The current task
 var logicName; // The name of the current logic, important for custom blocks etc.
@@ -21,11 +34,11 @@ function current_logic() {
 }
 
 
-var graph = new joint.dia.Graph({
+export var graph = new joint.dia.Graph({
   loading: true
 });
 
-var paper = create_paper();
+export var paper = create_paper();
 
 var undoList = [];
 var currentState;
@@ -120,7 +133,7 @@ function renderBlockDescToDraggable(blockDesc, container) {
   var g = V("<g/>");
   vel.append(g);
   BlockDescRenderer(g, blockDesc, false).renderToSVG();
-  gBB = g.bbox(false);
+  var gBB = g.bbox(false);
   var width = 2*Math.max(-gBB.x, gBB.width+gBB.x);
   g.translate(width/2, -gBB.y + 5);
 
@@ -163,7 +176,7 @@ function setupPrototypeElements() {
       blockDesc.isPrototype = true;
       blockDesc.canRemove = true;
       blockDesc.data = {rule: rule};
-      el = renderBlockDescToDraggable(blockDesc, custom_container);
+      var el = renderBlockDescToDraggable(blockDesc, custom_container);
       $(el).find(".tool-remove").on('click', function () {
         delete_custom_block(rule.id);
       });

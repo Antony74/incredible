@@ -62,7 +62,7 @@ function selectNothing() {
 }
 
 $(function() {
-  paper.on('cell:pointerdown', function (cellView, evt, x, y) {
+  $(paper).on('cell:pointerdown', function (cellView, evt, x, y) {
     var cell = cellView.model;
 
     if (evt.shiftKey) { return; }
@@ -77,7 +77,7 @@ $(function() {
     }
   });
 
-  paper.on('blank:pointerdown', function (e, x, y) {
+  $(paper).on('blank:pointerdown', function (e, x, y) {
     if (e.shiftKey) { return; }
 
     var pos0 = {x: e.pageX, y: e.pageY};
@@ -98,7 +98,7 @@ $(function() {
     e.stopPropagation();
   });
 
-  paper.on('blank:pointerclick', function (evt, x, y) {
+  $(paper).on('blank:pointerclick', function (evt, x, y) {
     if (evt.shiftKey) {
       // ignore
     } else {
@@ -106,7 +106,7 @@ $(function() {
     }
   });
 
-  paper.on('cell:pointerclick', function (cellView, evt, x, y) {
+  $(paper).on('cell:pointerclick', function (cellView, evt, x, y) {
     var cell = cellView.model;
 
     if (evt.shiftKey) {
@@ -139,7 +139,7 @@ $(function() {
     }
   });
 
-  paper.on('element:schieblehre',function(cellView, direction, dx, dy) {
+  $(paper).on('element:schieblehre',function(cellView, direction, dx, dy) {
     var basewidth0 = cellView.model.get('schieblehrebasewidth');
     if (basewidth0 === undefined) { basewidth0 = 40; }
     var basewidth1 = basewidth0;
@@ -164,7 +164,7 @@ $(function() {
   });
 
 
-  graph.on('change:position', function (model, pos1, options) {
+  $(graph).on('change:position', function (model, pos1, options) {
     if (options.derivedMove) { return; }
 
     if (model.get('selected')) {

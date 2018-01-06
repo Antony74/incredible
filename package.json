@@ -1,0 +1,28 @@
+{
+  "name": "the-incredible-proof-machine",
+  "version": "1.0.0",
+  "description": "Welcome to **The Incredible Proof Machine**. The Incredible Proof Machine is a\r non-textual interactive theorem prover, or at least it will hopefully become\r one.",
+  "main": "logic.js",
+  "directories": {
+    "example": "examples"
+  },
+  "dependencies": {
+    "http-server": "^0.10.0",
+    "requirejs": "^2.3.5",
+    "typescript": "^2.6.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "tsc && http-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Antony74/incredible.git"
+  },
+  "author": "Joachim Breitner",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Antony74/incredible/issues"
+  },
+  "homepage": "https://github.com/Antony74/incredible#readme"
+}
